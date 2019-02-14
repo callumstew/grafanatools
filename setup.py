@@ -18,6 +18,7 @@ setup(
         install_requires=[
             'requests'
         ],
+        include_package_data=True,
         classifiers=[
             'Programming Language :: Python',
         ]

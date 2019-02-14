@@ -1,0 +1,5 @@
+include src/grafanatools/defaults/*.json
+include src/grafanatools/defaults/panels/*.json
+include src/grafanatools/defaults/templating/*.json
+include src/grafanatools/defaults/datasources/*.json
+include src/grafanatools/defaults/annotations/*.json
