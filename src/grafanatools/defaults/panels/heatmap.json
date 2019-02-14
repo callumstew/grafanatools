@@ -1,0 +1,75 @@
+{
+  "type": "heatmap",
+  "title": "Panel Title",
+  "gridPos": {
+    "x": 0,
+    "y": 0,
+    "w": 12,
+    "h": 9
+  },
+  "id": 2,
+  "targets": [
+    {
+      "format": "time_series",
+      "timeColumn": "time",
+      "metricColumn": "none",
+      "group": [],
+      "where": [
+        {
+          "type": "macro",
+          "name": "$__timeFilter",
+          "params": []
+        }
+      ],
+      "select": [
+        [
+          {
+            "type": "column",
+            "params": [
+              "value"
+            ]
+          }
+        ]
+      ],
+      "rawQuery": false
+    }
+  ],
+  "heatmap": {},
+  "cards": {
+    "cardPadding": null,
+    "cardRound": null
+  },
+  "color": {
+    "mode": "spectrum",
+    "cardColor": "#b4ff00",
+    "colorScale": "sqrt",
+    "exponent": 0.5,
+    "colorScheme": "interpolateOranges"
+  },
+  "legend": {
+    "show": false
+  },
+  "dataFormat": "timeseries",
+  "yBucketBound": "auto",
+  "xAxis": {
+    "show": true
+  },
+  "yAxis": {
+    "show": true,
+    "format": "short",
+    "decimals": null,
+    "logBase": 1,
+    "splitFactor": null,
+    "min": null,
+    "max": null
+  },
+  "xBucketSize": null,
+  "xBucketNumber": null,
+  "yBucketSize": null,
+  "yBucketNumber": null,
+  "tooltip": {
+    "show": true,
+    "showHistogram": false
+  },
+  "highlightCards": true
+}

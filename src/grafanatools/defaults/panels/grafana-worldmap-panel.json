@@ -1,0 +1,68 @@
+{
+  "type": "grafana-worldmap-panel",
+  "title": "Panel Title",
+  "gridPos": {
+    "x": 0,
+    "y": 0,
+    "w": 12,
+    "h": 9
+  },
+  "id": 12,
+  "targets": [
+    {
+      "format": "time_series",
+      "timeColumn": "time",
+      "metricColumn": "none",
+      "group": [],
+      "where": [
+        {
+          "type": "macro",
+          "name": "$__timeFilter",
+          "params": []
+        }
+      ],
+      "select": [
+        [
+          {
+            "type": "column",
+            "params": [
+              "value"
+            ]
+          }
+        ]
+      ],
+      "rawQuery": false
+    }
+  ],
+  "maxDataPoints": 1,
+  "mapCenter": "(0°, 0°)",
+  "mapCenterLatitude": 0,
+  "mapCenterLongitude": 0,
+  "initialZoom": 1,
+  "valueName": "total",
+  "circleMinSize": 2,
+  "circleMaxSize": 30,
+  "locationData": "countries",
+  "thresholds": "0,10",
+  "colors": [
+    "rgba(245, 54, 54, 0.9)",
+    "rgba(237, 129, 40, 0.89)",
+    "rgba(50, 172, 45, 0.97)"
+  ],
+  "unitSingle": "",
+  "unitPlural": "",
+  "showLegend": true,
+  "mouseWheelZoom": false,
+  "esMetric": "Count",
+  "decimals": 0,
+  "hideEmpty": false,
+  "hideZero": false,
+  "stickyLabels": false,
+  "tableQueryOptions": {
+    "queryType": "geohash",
+    "geohashField": "geohash",
+    "latitudeField": "latitude",
+    "longitudeField": "longitude",
+    "metricField": "metric"
+  }
+}

@@ -1,0 +1,15 @@
+{
+    "current": {
+        "text": "No data sources found",
+        "value": ""
+    },
+    "hide": 0,
+    "label": null,
+    "name": "Datasource",
+    "options": [],
+    "query": "",
+    "refresh": 1,
+    "regex": "",
+    "skipUrlSync": false,
+    "type": "datasource"
+}

@@ -1,0 +1,19 @@
+ {
+    "current": {
+        "text": "test",
+        "value": "test"
+    },
+    "hide": 0,
+    "label": null,
+    "name": "Constant",
+    "options": [
+        {
+        "selected": true,
+        "text": "test",
+        "value": "test"
+        }
+    ],
+    "query": "test",
+    "skipUrlSync": false,
+    "type": "constant"
+}

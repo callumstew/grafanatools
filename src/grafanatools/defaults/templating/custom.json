@@ -1,0 +1,22 @@
+{
+    "allValue": null,
+    "current": {
+        "text": "1",
+        "value": "1"
+    },
+    "hide": 0,
+    "includeAll": false,
+    "label": null,
+    "multi": false,
+    "name": "Custom",
+    "options": [
+        {
+        "selected": true,
+        "text": "1",
+        "value": "1"
+        }
+    ],
+    "query": "1",
+    "skipUrlSync": false,
+    "type": "custom"
+}

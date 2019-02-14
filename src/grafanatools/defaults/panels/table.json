@@ -1,0 +1,71 @@
+{
+  "type": "table",
+  "title": "Panel Title",
+  "gridPos": {
+    "x": 0,
+    "y": 0,
+    "w": 12,
+    "h": 9
+  },
+  "id": 2,
+  "targets": [
+    {
+      "format": "table",
+      "timeColumn": "time",
+      "metricColumn": "none",
+      "group": [],
+      "where": [
+        {
+          "type": "macro",
+          "name": "$__timeFilter",
+          "params": []
+        }
+      ],
+      "select": [
+        [
+          {
+            "type": "column",
+            "params": [
+              "value"
+            ]
+          }
+        ]
+      ],
+      "rawQuery": true,
+      "rawSql": "SELECT 1",
+      "refId": "A"
+    }
+  ],
+  "styles": [
+    {
+      "type": "date",
+      "pattern": "Time",
+      "alias": "Time",
+      "dateFormat": "YYYY-MM-DD HH:mm:ss"
+    },
+    {
+      "unit": "short",
+      "type": "number",
+      "alias": "",
+      "decimals": 2,
+      "colors": [
+        "rgba(245, 54, 54, 0.9)",
+        "rgba(237, 129, 40, 0.89)",
+        "rgba(50, 172, 45, 0.97)"
+      ],
+      "colorMode": null,
+      "pattern": "/.*/",
+      "thresholds": []
+    }
+  ],
+  "transform": "timeseries_to_columns",
+  "pageSize": null,
+  "showHeader": true,
+  "columns": [],
+  "scroll": true,
+  "fontSize": "100%",
+  "sort": {
+    "col": 0,
+    "desc": true
+  }
+}

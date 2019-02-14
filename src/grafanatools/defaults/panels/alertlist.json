@@ -1,0 +1,19 @@
+{
+  "type": "alertlist",
+  "title": "Panel Title",
+  "gridPos": {
+    "x": 0,
+    "y": 0,
+    "w": 12,
+    "h": 9
+  },
+  "id": 4,
+  "show": "current",
+  "limit": 10,
+  "stateFilter": [],
+  "onlyAlertsOnDashboard": false,
+  "sortOrder": 1,
+  "dashboardFilter": "",
+  "nameFilter": "",
+  "folderId": null
+}

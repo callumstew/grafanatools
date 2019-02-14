@@ -1,0 +1,77 @@
+{
+  "type": "neocat-cal-heatmap-panel",
+  "title": "Panel Title",
+  "gridPos": {
+    "x": 0,
+    "y": 0,
+    "w": 12,
+    "h": 9
+  },
+  "id": 14,
+  "targets": [
+    {
+      "format": "time_series",
+      "timeColumn": "time",
+      "metricColumn": "none",
+      "group": [],
+      "where": [
+        {
+          "type": "macro",
+          "name": "$__timeFilter",
+          "params": []
+        }
+      ],
+      "select": [
+        [
+          {
+            "type": "column",
+            "params": [
+              "value"
+            ]
+          }
+        ]
+      ],
+      "rawQuery": false
+    }
+  ],
+  "config": {
+    "animationDuration": 0,
+    "domain": "auto",
+    "subDomain": "auto",
+    "verticalOrientation": false,
+    "colLimit": null,
+    "rowLimit": null,
+    "cellSize": 10,
+    "cellPadding": 2,
+    "cellRadius": 0,
+    "domainGutter": 2,
+    "label": {
+      "position": "bottom",
+      "rotate": "null",
+      "width": 60
+    },
+    "legendStr": "",
+    "legendColors": {
+      "min": "#666",
+      "max": "steelblue",
+      "empty": "#222",
+      "base": "transparent"
+    },
+    "displayLegend": true,
+    "hoverUnitFormat": "short",
+    "hoverDecimals": 2,
+    "itemName": [
+      "short",
+      "short"
+    ],
+    "subDomainTitleFormat": {
+      "empty": "{date}",
+      "filled": {}
+    },
+    "legendTitleFormat": {
+      "lower": {},
+      "upper": {},
+      "inner": {}
+    }
+  }
+}

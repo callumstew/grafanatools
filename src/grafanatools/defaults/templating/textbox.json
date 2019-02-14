@@ -1,0 +1,18 @@
+{
+    "current": {
+        "text": "",
+        "value": ""
+    },
+    "hide": 0,
+    "label": null,
+    "name": "Text",
+    "options": [
+        {
+        "text": "",
+        "value": ""
+        }
+    ],
+    "query": "",
+    "skipUrlSync": false,
+    "type": "textbox"
+}
