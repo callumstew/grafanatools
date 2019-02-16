@@ -27,19 +27,19 @@ class BaseApi():
         return self.s.get(self.url + endpoint, **kwargs)
 
     def head(self, endpoint: str, **kwargs) -> Response:
-        return self.s.get(self.url + endpoint, **kwargs)
+        return self.s.head(self.url + endpoint, **kwargs)
 
     def patch(self, endpoint: str, **kwargs) -> Response:
-        return self.s.get(self.url + endpoint, **kwargs)
+        return self.s.patch(self.url + endpoint, **kwargs)
 
     def post(self, endpoint: str, **kwargs) -> Response:
-        return self.s.get(self.url + endpoint, **kwargs)
+        return self.s.post(self.url + endpoint, **kwargs)
 
     def put(self, endpoint: str, **kwargs) -> Response:
-        return self.s.get(self.url + endpoint, **kwargs)
+        return self.s.put(self.url + endpoint, **kwargs)
 
     def delete(self, endpoint: str, **kwargs) -> Response:
-        return self.s.get(self.url + endpoint, **kwargs)
+        return self.s.delete(self.url + endpoint, **kwargs)
 
 
 class DashboardApi(BaseApi):
@@ -92,6 +92,7 @@ class DatasourceApi(BaseApi):
         return self.get(endpoint='/id/' + name)
 
     def create(self, datasource: Mapping[str, Any]) -> Response:
+        print(self.url)
         return self.post(endpoint='', json=datasource)
 
     def update(self, id: int, datasource: Mapping[str, Any]) -> Response:
