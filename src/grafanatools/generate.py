@@ -1,54 +1,55 @@
 """ Generate Grafana JSON objects """
 import json
+from copy import deepcopy
 from . import defaults
 
 
-def fill_defaults_dashboard(dashboard,
-                            default=defaults.DASHBOARD):
-    out = default.copy()
+def fill_template_dashboard(dashboard,
+                            template=defaults.DASHBOARD):
+    out = deepcopy(template)
     out.update(dashboard)
     return out
 
 
-def fill_defaults_panel(panel, default=defaults.PANELS):
+def fill_template_panel(panel, template=defaults.PANELS):
     panel_type = panel.get('type', 'graph')
-    out = default[panel_type].copy()
+    out = deepcopy(template[panel_type])
     out.update(panel)
     return out
 
 
-def fill_defaults_templating(variable,
-                             default=defaults.TEMPLATING):
+def fill_template_templating(variable,
+                             template=defaults.TEMPLATING):
     templating_type = variable.get('type', 'constant')
-    out = default[templating_type].copy()
+    out = deepcopy(template[templating_type])
     out.update(variable)
     return out
 
 
-def fill_defaults_datasource(datasource,
-                             default=defaults.DATASOURCES):
+def fill_template_datasource(datasource,
+                             template=defaults.DATASOURCES):
     datasource_type = datasource.get('type', 'graphite')
-    out = default[datasource_type].copy()
+    out = deepcopy(template[datasource_type])
     out.update(datasource)
     return out
 
 
-def fill_defaults_annotation(annotation,
-                             default=defaults.ANNOTATIONS):
+def fill_template_annotation(annotation,
+                             template=defaults.ANNOTATIONS):
     annotation_type = annotation.get('type', 'dashboard')
-    out = default[annotation_type].copy()
+    out = deepcopy(template[annotation_type])
     out.update(annotation)
     return out
 
 
 def generate_dashboard(dashboard):
-    dashboard = fill_defaults_dashboard(dashboard)
+    dashboard = fill_template_dashboard(dashboard)
     for annotation in dashboard['annotations']:
-        fill_defaults_annotation(annotation)
+        fill_template_annotation(annotation)
     for panel in dashboard['panels']:
-        fill_defaults_panel(panel)
+        fill_template_panel(panel)
     for variable in dashboard['templating']['list']:
-        fill_defaults_templating(variable)
+        fill_template_templating(variable)
     return dashboard
 
 

@@ -22,5 +22,39 @@ class Item(dict):
         return props.difference(set(dict().__dir__()))
 
 
-class Constant(Item):
-    a = 1
+class Option(Item):
+    selected = False
+    text = ''
+    value = ''
+
+
+class Variable(Item):
+    current = {}
+    options = []
+
+    def __init__(self, value, *args, **kwargs):
+        self.current['text'] = str(value)
+        self.current['value'] = value
+        self.options.append(Option(text=str(value), value=value))
+        super(Variable, self).__init__(*args, **kwargs)
+
+
+class Constant(Variable):
+    type = 'constant'
+
+
+class Textbox(Variable):
+    type = 'textbox'
+
+
+class Custom(Variable):
+    type = 'custom'
+
+
+class Interval(Variable):
+    type = 'interval'
+
+
+class Datasource(Variable):
+    """ May need to inherit from Item """
+    type = 'datasource'
