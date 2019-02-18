@@ -13,7 +13,7 @@ class Item(dict):
         for k, v in kwargs.items():
             if isinstance(v, dict):
                 dict_kwargs[k] = kwargs.pop(k)
-        super(Item, self).__init__(*args, **kwargs)
+        super().__init__(*args, **kwargs)
         update(self, dict_kwargs)
         self.__dict__ = self
 
@@ -35,8 +35,9 @@ class Variable(Item):
     def __init__(self, value, *args, **kwargs):
         self.current['text'] = str(value)
         self.current['value'] = value
-        self.options.append(Option(text=str(value), value=value))
-        super(Variable, self).__init__(*args, **kwargs)
+        self.options.append(Option(text=str(value), value=value,
+                                   selected=True))
+        super().__init__(*args, **kwargs)
 
 
 class Constant(Variable):
@@ -55,6 +56,13 @@ class Interval(Variable):
     type = 'interval'
 
 
-class Datasource(Variable):
-    """ May need to inherit from Item """
+class DataSource(Item):
     type = 'datasource'
+    current = {}
+
+    def __init__(self, name, value, query, *args, **kwargs):
+        self.current['text'] = str(value)
+        self.current['value'] = value
+        self.name = name
+        self.query = query
+        super().__init__(*args, **kwargs)

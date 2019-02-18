@@ -47,7 +47,7 @@ class DashboardApi(BaseApi):
         super().__init__(*args, **kwargs)
         self.url = self.url + '/api/dashboards'
 
-    def create_dashboard(self, dashboard: Mapping,
+    def create(self, dashboard: Mapping,
                          folder_id: int = 0,
                          overwrite: bool = False,
                          message: Optional[str] = None) -> Response:
@@ -58,11 +58,13 @@ class DashboardApi(BaseApi):
             body['message'] = message
         return self.post(endpoint='/db', json=body)
 
+    def update_dashboard(self, *args, **kwargs):
+        return self.create(*args, **kwargs)
 
-    def get_dashboard(self, uid: str) -> Response:
+    def get_by_uid(self, uid: str) -> Response:
         return self.get(endpoint='/uid/' + uid)
 
-    def delete_dashboard(self, uid: str) -> Response:
+    def delete_by_uid(self, uid: str) -> Response:
         return self.delete(endpoint='/uid/' + uid)
 
     def get_home_dashboard(self) -> Response:
@@ -70,8 +72,6 @@ class DashboardApi(BaseApi):
 
     def get_tags(self) -> Response:
         return self.get(endpoint='/tags')
-
-    update_dashboard = create_dashboard
 
 
 class DatasourceApi(BaseApi):
@@ -92,7 +92,6 @@ class DatasourceApi(BaseApi):
         return self.get(endpoint='/id/' + name)
 
     def create(self, datasource: Mapping[str, Any]) -> Response:
-        print(self.url)
         return self.post(endpoint='', json=datasource)
 
     def update(self, id: int, datasource: Mapping[str, Any]) -> Response:
@@ -123,7 +122,7 @@ class FoldersApi(BaseApi):
         folder = {'title': title}
         if uid:
             folder['uid'] = uid
-        return self.post('', body=folder)
+        return self.post('', json=folder)
 
     def update(self, uid: str, folder: Mapping[str, Any]) -> Response:
         return self.put('/' + uid, json=folder)

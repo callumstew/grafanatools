@@ -13,7 +13,7 @@ def fill_template_dashboard(dashboard,
 
 def fill_template_panel(panel, template=defaults.PANELS):
     panel_type = panel.get('type', 'graph')
-    out = deepcopy(template[panel_type])
+    out = deepcopy(template.get(panel_type, {}))
     out.update(panel)
     return out
 
@@ -21,7 +21,7 @@ def fill_template_panel(panel, template=defaults.PANELS):
 def fill_template_templating(variable,
                              template=defaults.TEMPLATING):
     templating_type = variable.get('type', 'constant')
-    out = deepcopy(template[templating_type])
+    out = deepcopy(template.get(templating_type, {}))
     out.update(variable)
     return out
 
@@ -29,7 +29,7 @@ def fill_template_templating(variable,
 def fill_template_datasource(datasource,
                              template=defaults.DATASOURCES):
     datasource_type = datasource.get('type', 'graphite')
-    out = deepcopy(template[datasource_type])
+    out = deepcopy(template.get(datasource_type, {}))
     out.update(datasource)
     return out
 
@@ -37,14 +37,14 @@ def fill_template_datasource(datasource,
 def fill_template_annotation(annotation,
                              template=defaults.ANNOTATIONS):
     annotation_type = annotation.get('type', 'dashboard')
-    out = deepcopy(template[annotation_type])
+    out = deepcopy(template.get(annotation_type, {}))
     out.update(annotation)
     return out
 
 
 def generate_dashboard(dashboard):
     dashboard = fill_template_dashboard(dashboard)
-    for annotation in dashboard['annotations']:
+    for annotation in dashboard['annotations']['list']:
         fill_template_annotation(annotation)
     for panel in dashboard['panels']:
         fill_template_panel(panel)
