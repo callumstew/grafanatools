@@ -42,15 +42,15 @@ def fill_template_annotation(annotation,
     return out
 
 
-def generate_dashboard(dashboard):
-    dashboard = fill_template_dashboard(dashboard)
-    for annotation in dashboard['annotations']['list']:
-        fill_template_annotation(annotation)
-    for panel in dashboard['panels']:
-        fill_template_panel(panel)
-    for variable in dashboard['templating']['list']:
-        fill_template_templating(variable)
-    return dashboard
+def generate_dashboard(db):
+    db = fill_template_dashboard(db)
+    db['panels'] = [fill_template_panel(p)
+                    for p in db['panels']]
+    db['templating']['list'] = [fill_template_templating(v)
+                                for v in db['templating']['list']]
+    db['annotations']['list'] = [fill_template_annotation(a)
+                                 for a in db['annotations']['list']]
+    return db
 
 
 def dashboard_dumps(dashboard):
