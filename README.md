@@ -5,8 +5,7 @@ them using the HTTP API.
 
 Another similar tool, [grafanalib](https://github.com/weaveworks/grafanalib) already exists,
 and is more fully featured, but seems to require writing out dashboards using the library's 
-classes. This package has optional support for some Grafana objects in a similar syntax to grafanalib, but is designed to work seemlessly with the normal Grafana JSON representation. This was useful to me because many of my dashboards were already designed within Grafana, and could be simply exported and programmatically iterated on without rewriting.
-
+classes. This package has optional support for some Grafana objects in a similar syntax to grafanalib, but is designed to work seemlessly with the normal Grafana JSON representation. This can be useful where dashboards already exist within Grafana that you do not want to rewrite in a python-class-specific template. 
 
 ## grafanatools.api
 
