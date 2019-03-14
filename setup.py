@@ -9,7 +9,7 @@ setup(
         name='grafanatools',
         version='0.0.1',
         packages=find_packages(where='src'),
-        package_dir={'grafanatools': 'src/grafanatools'},
+        package_dir={'': 'src'},
         url='https://github.com/callumstew/grafanatools',
         author='Callum Stewart',
         author_email='callum.stewart@gmail.com',
